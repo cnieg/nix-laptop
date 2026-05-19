@@ -10,6 +10,7 @@
   services.fstrim.enable = true;
 
   networking.hostName = "nixos-test-vm";
+  networking.networkmanager.enable = true;
   
   # Configuration des utilisateurs
   users.users.nixos = {
