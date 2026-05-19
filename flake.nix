@@ -10,7 +10,6 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # /!\ CORRECTION SÉCURIX : On télécharge le dépôt brut sans chercher de Flake
     securix.url = "github:cloud-gouv/securix";
     securix.flake = false;
   };
@@ -24,8 +23,8 @@
         modules = [
           disko.nixosModules.disko
           
-          # /!\ CORRECTION SÉCURIX : On injecte le point d'entrée des modules manuellement
-          "${securix}/modules/default.nix"
+          # 🛑 DESACTIVATION TEMPORAIRE SÉCURIX
+          # "${securix}/modules/default.nix"
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -34,7 +33,10 @@
           }
           ./disko-config.nix
           ./configuration.nix
-          ./security.nix
+          
+          # 🛑 DESACTIVATION TEMPORAIRE DU CONFIG DE SÉCURITÉ STRICTE
+          # ./security.nix
+
           { hardware.enableRedistributableFirmware = true; } 
         ];
       };
@@ -45,8 +47,8 @@
         modules = [
           disko.nixosModules.disko
           
-          # /!\ CORRECTION SÉCURIX : Même chose pour la VM de test
-          "${securix}/modules/default.nix"
+          # 🛑 DESACTIVATION TEMPORAIRE SÉCURIX
+          # "${securix}/modules/default.nix"
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -55,7 +57,10 @@
           }
           ./disko-config.nix
           ./configuration.nix
-          ./security.nix
+          
+          # 🛑 DESACTIVATION TEMPORAIRE DU CONFIG DE SÉCURITÉ STRICTE
+          # ./security.nix
+
           ({ modulesPath, ... }: {
             imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
           })

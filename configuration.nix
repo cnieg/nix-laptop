@@ -15,7 +15,7 @@
   # Configuration des utilisateurs
   users.users.nixos = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
+    extraGroups = [ "wheel" "video" "networkmanager" ];
     initialPassword = "nixos"; # Mot de passe de session temporaire
   };
 
