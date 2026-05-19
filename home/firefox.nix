@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.passbolt-cli ];
+  home.packages = [ pkgs.go-passbolt-cli ];
 
   programs.firefox = {
     enable = true;
