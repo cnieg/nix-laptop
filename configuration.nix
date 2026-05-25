@@ -26,13 +26,25 @@
 
   # Paramètres linguistiques globaux
   i18n.defaultLocale = "fr_FR.UTF-8";
-  
+
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+    nerd-fonts.jetbrains-mono
+  ];
+
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = [ "JetBrainsMono Nerd Font" ];
+    };
+  };
+
   # Configuration stricte de la console TTY en AZERTY (avec fontes adaptées)
   console = {
     enable = true;
-    # keyMap = "fr";
-    font = "Lat2-Terminus16"; 
-    useXkbConfig = true; # Copie les règles XKB définies plus bas
+    packages = [ pkgs.terminus_font ];
+    font = "ter-v16n";
+    useXkbConfig = true; 
   };
 
   # Configuration de base d'XKB (utilisée par SDDM et les bureaux Wayland)
