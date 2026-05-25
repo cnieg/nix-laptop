@@ -13,6 +13,10 @@
   # Optimisation pour la durée de vie de votre SSD (Trim à travers LUKS)
   services.fstrim.enable = true;
 
+  securix.self.mainDisk = "main";
+  disko.devices.disk.main.device = "/dev/nvme0n1";
+  securix.profiles.filesystems.enable = true;
+
   # ============================================================================
   # 2. LOCALISATION & HORLOGE (Time & Internationalization)
   # ============================================================================

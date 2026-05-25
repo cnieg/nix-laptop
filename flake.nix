@@ -23,9 +23,6 @@
         modules = [
           disko.nixosModules.disko
           
-          # 🛑 DESACTIVATION TEMPORAIRE SÉCURIX
-          # "${securix}/modules/default.nix"
-
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -33,10 +30,7 @@
           }
           ./disko-config.nix
           ./configuration.nix
-          
-          # 🛑 DESACTIVATION TEMPORAIRE DU CONFIG DE SÉCURITÉ STRICTE
-          # ./security.nix
-
+          securix.nixosModules.default or (import "${securix}/modules") 
           { hardware.enableRedistributableFirmware = true; } 
         ];
       };
@@ -47,9 +41,6 @@
         modules = [
           disko.nixosModules.disko
           
-          # 🛑 DESACTIVATION TEMPORAIRE SÉCURIX
-          # "${securix}/modules/default.nix"
-
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -57,10 +48,8 @@
           }
           ./disko-config.nix
           ./configuration.nix
+          securix.nixosModules.default or (import "${securix}/modules") 
           
-          # 🛑 DESACTIVATION TEMPORAIRE DU CONFIG DE SÉCURITÉ STRICTE
-          # ./security.nix
-
           ({ modulesPath, ... }: {
             imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
           })
