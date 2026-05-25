@@ -16,6 +16,15 @@
   programs.bash.shellAliases = {
     idea = "idea-community";
     intellij = "idea-community";
+
+  programs.bash.shellAliases = {
+    idea = "idea-community";
+    intellij = "idea-community";
+  };
+
+  programs.zsh.shellAliases = {
+    idea = "idea-community";
+    intellij = "idea-community";
   };
 }
 
