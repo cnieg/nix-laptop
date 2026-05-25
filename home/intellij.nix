@@ -12,4 +12,10 @@
     enable = true;
     nix-direnv.enable = true;
   };
+
+  programs.bash.shellAliases = {
+    idea = "idea-community";
+    intellij = "idea-community";
+  };
 }
+
