@@ -1,4 +1,7 @@
-{
+# ============================================================================
+# CONFIGURATION DE PARTITIONNEMENT (DISKO) - BTRFS + LUKS + SÉCURIX FIX
+# ============================================================================
+{ lib, ... }: {
   disko.devices = {
     disk = {
       main = {
@@ -7,29 +10,34 @@
         content = {
           type = "gpt";
           partitions = {
+            
+            # 1. Partition d'amorçage EFI (ESP)
             ESP = {
               size = "500M";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountpoint = "/boot";
+                # 🔥 Le mkForce ici résout définitivement le conflit avec la DINUM
+                mountpoint = lib.mkForce "/boot";
                 mountOptions = [ "umask=0077" ];
               };
             };
+
+            # 2. Partition chiffrée avec LUKS
             luks = {
               size = "100%";
               content = {
                 type = "luks";
                 name = "crypted";
-                # Réglages optionnels (clés de chiffrement, etc.)
-                # Par défaut, Disko vous demandera interactivement le mot de passe pendant l'installation
                 settings = {
                   allowDiscards = true;
                 };
+                
+                # 3. Conteneur Btrfs à l'intérieur du LUKS
                 content = {
                   type = "btrfs";
-                  extraArgs = [ "-f" ]; # Force le formatage
+                  extraArgs = [ "-f" ]; # Force le formatage si nécessaire
                   subvolumes = {
                     "@" = {
                       mountpoint = "/";
@@ -45,11 +53,14 @@
                     };
                   };
                 };
+
               };
             };
+
           };
         };
       };
     };
   };
 }
+

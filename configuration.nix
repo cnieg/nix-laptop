@@ -15,7 +15,7 @@
 
   securix.self.mainDisk = "main";
   disko.devices.disk.main.device = "/dev/nvme0n1";
-  securix.profiles.filesystems.enable = true;
+  securix.profiles.filesystems.enable = false;
 
   # ============================================================================
   # 2. LOCALISATION & HORLOGE (Time & Internationalization)
