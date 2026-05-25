@@ -73,10 +73,11 @@
     wayland.enable = true;
     autoNumlock = true;
   };
-  # Vos 3 environnements disponibles au choix sur l'écran d'accueil :
+  # Vos 4444vironnements disponibles au choix sur l'écran d'accueil :
   services.desktopManager.plasma6.enable = true;
   services.desktopManager.cosmic.enable = true;
   programs.hyprland.enable = true;
+  programs.niri.enable = true;
 
   # ============================================================================
   # 6. PARAMÈTRES NIX & PARAMÈTRES INTERNES (Nix Core Settings)
