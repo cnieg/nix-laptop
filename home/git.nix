@@ -9,6 +9,9 @@
         name = "Dominique ARNOU";
         email = "dominique.arnou@gmail.com";
       };
+      push = {
+        autoSetupRemote = true;
+      };
     };
   };
 }
