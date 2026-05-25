@@ -9,12 +9,14 @@
         kb_layout = "fr";
         kb_variant = "oss"; # Options: "oss" (recommandé) ou "" (standard)
         follow_mouse = 1;
+	numlock_by_default = true;
       };
       
       "$mod" = "SUPER";
       bind = [
         "$mod, RETURN, exec, kitty"
         "$mod, Q, killactive"
+        "$mod, B, exec, firefox"
         "$mod, F, exec, firefox"
       ];
     };

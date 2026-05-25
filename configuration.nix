@@ -68,13 +68,13 @@
   # ============================================================================
   
   # Gestionnaire de connexion SDDM (compatible Wayland)
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  #services.displayManager.sddm.manageXauth = true;
-
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    autoNumlock = true;
+  };
   # Vos 3 environnements disponibles au choix sur l'écran d'accueil :
   services.desktopManager.plasma6.enable = true;
-  services.desktopManager.plasma6.enableX11Session = false;
   services.desktopManager.cosmic.enable = true;
   programs.hyprland.enable = true;
 

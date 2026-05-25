@@ -4,7 +4,7 @@
   };
 
   home.packages = with pkgs; [
-    jetbrains.idea-community
+    jetbrains.idea-oss
     temurin-bin-21
   ];
 

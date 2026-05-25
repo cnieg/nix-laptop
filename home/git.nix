@@ -1,13 +1,14 @@
 { ... }: {
   programs.git = {
     enable = true;
-    userName = "Dominique ARNOU";
-    userEmail = "dominique.arnou@gmail.com";
-
-    extraConfig = {
+    settings = {
       init.defaultBranch = "main";
       pull.rebase = false;
       fetch.prune = true;
+      user = {
+        name = "Dominique ARNOU";
+        email = "dominique.arnou@gmail.com";
+      };
     };
   };
 }
