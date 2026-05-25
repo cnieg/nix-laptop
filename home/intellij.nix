@@ -14,18 +14,18 @@
   };
 
   programs.bash.shellAliases = {
-    idea = "idea-community";
-    intellij = "idea-community";
+    idea = "idea-oss";
+    intellij = "idea-oss";
   };
 
   programs.fish.shellAliases = {
-    idea = "idea-community";
-    intellij = "idea-community";
+    idea = "idea-oss";
+    intellij = "idea-oss";
   };
 
   programs.zsh.shellAliases = {
-    idea = "idea-community";
-    intellij = "idea-community";
+    idea = "idea-oss";
+    intellij = "idea-oss";
   };
 }
 
