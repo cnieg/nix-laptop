@@ -17,7 +17,7 @@
       [Keyboard]
       NumLock=0
     '';
-
+    force = true;
     # Exemple optionnel : Vous pouvez ajouter d'autres configurations ici plus tard
     # ".config/kdeglobals".text = '' ... '';
   };
