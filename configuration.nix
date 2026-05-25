@@ -74,6 +74,7 @@
 
   # Vos 3 environnements disponibles au choix sur l'écran d'accueil :
   services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enableX11Session = false;
   services.desktopManager.cosmic.enable = true;
   programs.hyprland.enable = true;
 
@@ -87,6 +88,14 @@
   environment.systemPackages = with pkgs; [
     git
   ];
+
+  # Configuration globale de Neovim
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true; # Définit nvim comme l'éditeur par défaut du système ($EDITOR)
+    viAlias = true;       # Crée l'alias : vi -> nvim
+    vimAlias = true;      # Crée l'alias : vim -> nvim
+  };
 
   # Version d'installation initiale (ne jamais modifier pour garantir la reproductibilité)
   system.stateVersion = "25.11";
