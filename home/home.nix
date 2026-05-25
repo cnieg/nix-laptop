@@ -6,6 +6,7 @@
     ./hyprland.nix
     ./cosmic.nix
     ./plasma.nix
+    ./niri.nix
     ./firefox.nix
     ./intellij.nix
     ./git.nix
