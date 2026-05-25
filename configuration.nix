@@ -30,7 +30,7 @@
   # Configuration stricte de la console TTY en AZERTY (avec fontes adaptées)
   console = {
     enable = true;
-    keyMap = "fr";
+    # keyMap = "fr";
     font = "Lat2-Terminus16"; 
     useXkbConfig = true; # Copie les règles XKB définies plus bas
   };
@@ -70,7 +70,7 @@
   # Gestionnaire de connexion SDDM (compatible Wayland)
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.manageXauth = true;
+  #services.displayManager.sddm.manageXauth = true;
 
   # Vos 3 environnements disponibles au choix sur l'écran d'accueil :
   services.desktopManager.plasma6.enable = true;
@@ -83,6 +83,10 @@
   
   # Activation des fonctionnalités modernes de Nix
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  environment.systemPackages = with pkgs; [
+    git
+  ];
 
   # Version d'installation initiale (ne jamais modifier pour garantir la reproductibilité)
   system.stateVersion = "25.11";
